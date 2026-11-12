@@ -1,0 +1,29 @@
+{
+  "name": "RISC-V Lab Environment",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "chat.disableAIFeatures": true,
+        "github.copilot.enable": { "*": false },
+        "github.copilot.editor.enableCodeActions": false,
+        "editor.inlineSuggest.enabled": false,
+        "vsintellicode.modify.editor.suggestSelection": "disabled",
+        "workbench.layoutControl.enabled": false,
+        "files.associations": {
+          "*.s": "riscv",
+          "*.S": "riscv"
+        },
+        "extensions": [
+            "ms-vscode.cpptools"
+        ],
+        "postAttachCommand": [
+          "/vscode/vscode-server/bin/linux-x64/*/bin/remote-cli/code --install-extension /opt/riscv/riscv-debug.vsix",
+          "/vscode/vscode-server/bin/linux-x64/*/bin/remote-cli/code --install-extension ms-vscode.cpptools"
+        ]
+      }
+    }
+  }
+}
